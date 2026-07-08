@@ -6,3 +6,4 @@ environment={
   'B':random.choice(['Clean','Dirty'])
 }
 
+agent_location=random.choice(['A','B'])
