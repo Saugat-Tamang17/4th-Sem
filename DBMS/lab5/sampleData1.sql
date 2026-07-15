@@ -401,6 +401,13 @@ JOIN offices o
     ON e.officeCode = o.officeCode
 WHERE o.city = 'Sydney';
 
+--6. 6.List firstName, lastName and email of employee who is located in office at ‘San Francisco’.
+SELECT e.firstName, e.lastName, e.email
+FROM employees e
+
+
+
+
 
 
 
