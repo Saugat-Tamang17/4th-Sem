@@ -377,3 +377,23 @@ insert  into `customers`(`customerNumber`,`customerName`,`contactLastName`,`cont
 
 (496,'Kelly\'s Gift Shop','Snowden','Tony','+64 9 5555500','Arenales 1938 3\'A\'',NULL,'Auckland  ',NULL,NULL,'New Zealand',1612,'110000.00');
 
+-- question 2. Find the name of customers who ordered items between ‘2003-10-01’ and ‘2003-10-30’ and
+status of item is ‘Shipped’.
+ --
+SELECT DISTINCT c.customerName
+FROM customers c
+JOIN orders o
+    ON c.customerNumber = o.customerNumber
+WHERE o.orderDate BETWEEN '2003-10-01' AND '2003-10-30'
+  AND o.status = 'Shipped';
+
+--question 3 :Find the customer name and credit limit of the customers who made orders with order numbers in 10128, 10130, 10136, 10137. --
+SELECT DISTINCT c.customerName, c.creditLimit
+FROM customers c
+JOIN orders o
+    ON c.customerNumber = o.customerNumber
+WHERE o.orderNumber IN (10128, 10130, 10136, 10137);
+
+
+
+
