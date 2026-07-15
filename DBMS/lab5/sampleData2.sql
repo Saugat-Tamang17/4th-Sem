@@ -7553,3 +7553,16 @@ JOIN orderdetails od
     ON o.orderNumber = od.orderNumber
 GROUP BY c.customerNumber, c.customerName
 HAVING SUM(od.quantityOrdered * od.priceEach) > 5000;
+
+
+--10. List the customers who have made a purchase of a product named “1939 Cadillac Limousine”.
+SELECT DISTINCT c.customerName
+FROM customers c
+JOIN orders o
+    ON c.customerNumber = o.customerNumber
+JOIN orderdetails od
+    ON o.orderNumber = od.orderNumber
+JOIN products p
+    ON od.productCode = p.productCode
+WHERE p.productName = '1939 Cadillac Limousine';
+
