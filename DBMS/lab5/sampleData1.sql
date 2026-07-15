@@ -405,6 +405,14 @@ WHERE o.city = 'Sydney';
 SELECT e.firstName, e.lastName, e.email
 FROM employees e
 
+--7.Find the details of employees who reports to ‘Diane Murphy’.--
+SELECT e.*
+FROM employees e
+JOIN employees m
+    ON e.reportsTo = m.employeeNumber
+WHERE m.firstName = 'Diane'
+  AND m.lastName = 'Murphy';
+
 
 
 
