@@ -394,6 +394,14 @@ JOIN orders o
     ON c.customerNumber = o.customerNumber
 WHERE o.orderNumber IN (10128, 10130, 10136, 10137);
 
+--4.List the name of employees who are located at ‘Sydney’ Office--
+SELECT e.firstName, e.lastName
+FROM employees e
+JOIN offices o
+    ON e.officeCode = o.officeCode
+WHERE o.city = 'Sydney';
+
+
 
 
 
