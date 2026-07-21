@@ -16,4 +16,10 @@ func main() {
 	max := make([][]int, n)
 	need := make([][]int, n)
 	available := make([]int, m)
+
+	for i := 0; i < n; i++ {
+		allocation[i] = make([]int, m)
+		max[i] = make([]int, m)
+		need[i] = make([]int, m)
+	}
 }
