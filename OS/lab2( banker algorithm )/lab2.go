@@ -40,4 +40,10 @@ func main() {
 			fmt.Scan(&max[i][j])
 		}
 	}
+
+	// Input Available Vector
+	fmt.Println("\nEnter the Available Resources:")
+	for i := 0; i < m; i++ {
+		fmt.Scan(&available[i])
+	}
 }
