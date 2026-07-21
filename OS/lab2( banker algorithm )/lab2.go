@@ -47,9 +47,20 @@ func main() {
 		fmt.Scan(&available[i])
 	}
 
+	// Calculate Need Matrix
 	for i := 0; i < n; i++ {
 		for j := 0; j < m; j++ {
 			need[i][j] = max[i][j] - allocation[i][j]
 		}
+	}
+
+	// Print Need Matrix
+	fmt.Println("\nNeed Matrix:")
+	for i := 0; i < n; i++ {
+		fmt.Printf("P%d: ", i)
+		for j := 0; j < m; j++ {
+			fmt.Printf("%d ", need[i][j])
+		}
+		fmt.Println()
 	}
 }
