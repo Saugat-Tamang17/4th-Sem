@@ -10,4 +10,10 @@ func main() {
 
 	fmt.Print("Enter the number of resource types: ")
 	fmt.Scan(&m)
+
+	// Allocate matrices
+	allocation := make([][]int, n)
+	max := make([][]int, n)
+	need := make([][]int, n)
+	available := make([]int, m)
 }
