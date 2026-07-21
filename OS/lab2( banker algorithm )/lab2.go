@@ -22,4 +22,13 @@ func main() {
 		max[i] = make([]int, m)
 		need[i] = make([]int, m)
 	}
+
+	// Input Allocation Matrix
+	fmt.Println("\nEnter the Allocation Matrix:")
+	for i := 0; i < n; i++ {
+		fmt.Printf("P%d: ", i)
+		for j := 0; j < m; j++ {
+			fmt.Scan(&allocation[i][j])
+		}
+	}
 }
