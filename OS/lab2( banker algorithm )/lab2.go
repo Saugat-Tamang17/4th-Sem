@@ -66,4 +66,6 @@ func main() {
 
 	work := make([]int, m)
 	copy(work, available)
+
+	finish := make([]bool, n)
 }
