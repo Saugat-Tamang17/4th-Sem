@@ -31,4 +31,13 @@ func main() {
 			fmt.Scan(&allocation[i][j])
 		}
 	}
+
+	// Input Maximum resourcce needed Matrix
+	fmt.Println("\nEnter the Maximum Matrix:")
+	for i := 0; i < n; i++ {
+		fmt.Printf("P%d: ", i)
+		for j := 0; j < m; j++ {
+			fmt.Scan(&max[i][j])
+		}
+	}
 }
