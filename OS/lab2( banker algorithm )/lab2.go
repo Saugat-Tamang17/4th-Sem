@@ -46,4 +46,10 @@ func main() {
 	for i := 0; i < m; i++ {
 		fmt.Scan(&available[i])
 	}
+
+	for i := 0; i < n; i++ {
+		for j := 0; j < m; j++ {
+			need[i][j] = max[i][j] - allocation[i][j]
+		}
+	}
 }
