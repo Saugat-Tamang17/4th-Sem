@@ -63,4 +63,6 @@ func main() {
 		}
 		fmt.Println()
 	}
+
+	work := make([]int, m)
 }
