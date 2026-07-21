@@ -68,4 +68,5 @@ func main() {
 	copy(work, available)
 
 	finish := make([]bool, n)
+	safeSequence := []int{}
 }
