@@ -69,21 +69,11 @@ func main() {
 
 	finish := make([]bool, n)
 	safeSequence := []int{}
-		for count < n {
-		found := false
-
-		for i := 0; i < n; i++ {
-
-			if !finish[i] {
-
-				canExecute := true
-
-				for j := 0; j < m; j++ {
-					if need[i][j] > work[j] {
+	ork[j] {
 						canExecute = false
 						break
 					}
-				}
+				
 
 				if canExecute {
 
@@ -105,5 +95,3 @@ func main() {
 					found = true
 				}
 			}
-		}
-}
