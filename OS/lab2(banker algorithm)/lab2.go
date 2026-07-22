@@ -68,7 +68,7 @@ func main() {
 	copy(work, available)
 
 	finish := make([]bool, n)
-	safeSequence := []int{}SZ
+	safeSequence := []int{}
 	count := 0
 
 	for count < n {
