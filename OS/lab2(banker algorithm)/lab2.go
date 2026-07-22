@@ -32,7 +32,7 @@ func main() {
 		}
 	}
 
-	// Input Maximum resourcce needed Matrix
+	// Input Maximum resource needed Matrix
 	fmt.Println("\nEnter the Maximum Matrix:")
 	for i := 0; i < n; i++ {
 		fmt.Printf("P%d: ", i)
@@ -68,30 +68,62 @@ func main() {
 	copy(work, available)
 
 	finish := make([]bool, n)
-	safeSequence := []int{}
-	ork[j] {
-						canExecute = false
-						break
-					}
-				
+	safeSequence := []int{}SZ
+	count := 0
 
-				if canExecute {
+	for count < n {
+		found := false
 
-					fmt.Printf("\nP%d executes.", i)
+		for i := 0; i < n; i++ {
+			if finish[i] {
+				continue
+			}
 
-					for j := 0; j < m; j++ {
-						work[j] += allocation[i][j]
-					}
-
-					fmt.Print("\nAvailable Resources: ")
-					for j := 0; j < m; j++ {
-						fmt.Printf("%d ", work[j])
-					}
-					fmt.Println()
-
-					safeSequence = append(safeSequence, i)
-					finish[i] = true
-					count++
-					found = true
+			canExecute := true
+			for j := 0; j < m; j++ {
+				if need[i][j] > work[j] {
+					canExecute = false
+					break
 				}
 			}
+
+			if canExecute {
+				fmt.Printf("\nP%d executes.", i)
+
+				for j := 0; j < m; j++ {
+					work[j] += allocation[i][j]
+				}
+
+				fmt.Print("\nAvailable Resources: ")
+				for j := 0; j < m; j++ {
+					fmt.Printf("%d ", work[j])
+				}
+				fmt.Println()
+
+				safeSequence = append(safeSequence, i)
+				finish[i] = true
+				count++
+				found = true
+			}
+		}
+
+		if !found {
+			break
+		}
+	}
+
+	if count == n {
+		fmt.Println("\nSystem is in a SAFE state.")
+		fmt.Print("Safe Sequence: ")
+
+		for i := 0; i < len(safeSequence); i++ {
+			if i == len(safeSequence)-1 {
+				fmt.Printf("P%d\n", safeSequence[i])
+			} else {
+				fmt.Printf("P%d -> ", safeSequence[i])
+			}
+		}
+	} else {
+		fmt.Println("\nSystem is NOT in a SAFE state.")
+	}
+}
