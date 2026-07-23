@@ -3,13 +3,13 @@
 create database lab7;
 use lab7;
 
-create table faculty(
+create table Faculty(
   FacultyID int primary key,
   Name varchar(50) not null,
   Designation varchar(50),
   Department varchar(50) not null,
   OfficePhone varchar(50) not null,
-  Email varchar(50) not null unique,
+  Email varchar(50) not null unique
 );
 
 create table Student(
@@ -33,8 +33,11 @@ create table ResearchProject(
   EndDate DATE,
   Budget Decimal(12,2),
   Status Varchar(20) not null,
-  FacultyID int not null, --foreignK from the 
-  AreaID int not null , -- w
+  FacultyID int not null, -- foreignK from the Faculty --
+  AreaID int not null , -- foreignK from the ReasearchArea--
+
+  Foreign Key (FacultyID) REFERENCES Faculty(FacultyID),
+  Foreign Key (AreaID) REFERENCES ResearchArea(AreaID)
 );
 
 create Table FundingAgency(
@@ -56,6 +59,14 @@ CREATE TABLE PUBLICATION (
     PublicationID     INT PRIMARY KEY,
     Title             VARCHAR(200) NOT NULL,
     Journal           VARCHAR(150),
-    PublicationYear   INT,
+    PublicationYear   year,
     DOI               VARCHAR(50) UNIQUE
 )
+
+create table participation(
+  ProjectID int not null,
+  StudentID int not null,
+)
+
+
+
