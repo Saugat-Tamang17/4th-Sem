@@ -63,7 +63,7 @@ CREATE TABLE PUBLICATION (
     DOI               VARCHAR(50) UNIQUE
 )
 
-create table participation(
+create table Participation(
   ProjectID int not null,
   StudentID int not null,  -- student can work on M projects --
 
@@ -72,6 +72,15 @@ create table participation(
   MonthlyStipend decimal(10,2),
   Foreign Key (ProjectID) REFERENCES ResearchProject(ProjectID),
   Foreign Key (StudentID) REFERENCES Student(StudentID)
+)
+
+create table Funding(
+  AgencyID int not null ,
+  ProjectID int not null , -- 1project can get funded from multiple agencies --
+  Amount decimal(12,2) not null,
+  FundingDate DATE not null,
+  FOREIGN KEY (ProjectID) REFERENCES ResearchProject(ProjectID),
+    FOREIGN KEY (AgencyID) REFERENCES FundingAgency(AgencyID)
 )
 
 
