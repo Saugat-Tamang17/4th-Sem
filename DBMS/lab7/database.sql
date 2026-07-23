@@ -65,7 +65,13 @@ CREATE TABLE PUBLICATION (
 
 create table participation(
   ProjectID int not null,
-  StudentID int not null,
+  StudentID int not null,  -- student can work on M projects --
+
+  JoiningDate DATE not null,
+  Role varchar(50) not null,
+  MonthlyStipend decimal(10,2),
+  Foreign Key (ProjectID) REFERENCES ResearchProject(ProjectID),
+  Foreign Key (StudentID) REFERENCES Student(StudentID)
 )
 
 
