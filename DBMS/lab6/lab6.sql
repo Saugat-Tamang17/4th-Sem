@@ -119,3 +119,13 @@ JOIN products p
 ON od.productCode = p.productCode
 WHERE c.city IN ('Las Vegas', 'San Francisco');
 select * from NYC_Product_View;
+
+
+-- 8. Using view created in question number 4, find out the total amount paid by the customer in each city.
+SELECT
+    c.city,
+    SUM(v.TotalAmountPaid) AS TotalAmount
+FROM Customer_Payment_View v
+JOIN customers c
+ON v.customerNumber = c.customerNumber
+GROUP BY c.city;
