@@ -93,3 +93,15 @@ ON od.productCode = p.productCode
 WHERE c.city = 'NYC';
 Select * from NYC_Product_View;
 
+
+-- 6. Update view in question number 1 to add information about the employee's job title.
+CREATE OR REPLACE VIEW Employee_View AS
+SELECT
+    CONCAT(e.firstName, ' ', e.lastName) AS FullName,
+    e.email,
+    o.city AS OfficeCity,
+    e.jobTitle
+FROM employees e
+JOIN offices o
+ON e.officeCode = o.officeCode;
+select * from Employee_View;
