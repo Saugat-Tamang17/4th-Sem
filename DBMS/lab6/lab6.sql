@@ -33,4 +33,20 @@ GROUP BY
 SELECT * FROM Customer_Order_View;
 show tables;
 
+-- 3. Create a view that contains information about customer name, customer city, product name and quantity of given product ordered by all customers.
+CREATE VIEW Customer_Product_View AS
+SELECT
+    c.customerName,
+    c.city,
+    p.productName,
+    od.quantityOrdered
+FROM customers c
+JOIN orders o
+ON c.customerNumber = o.customerNumber
+JOIN orderdetails od
+ON o.orderNumber = od.orderNumber
+JOIN products p
+ON od.productCode = p.productCode;
+SELECT * FROM Customer_Product_View;
+
 
