@@ -105,3 +105,17 @@ FROM employees e
 JOIN offices o
 ON e.officeCode = o.officeCode;
 select * from Employee_View;
+
+-- 7. Update view in question number 5 to information about product details for products ordered by customer residing in city 'Las Vegas' and 'San Francisco'.
+CREATE OR REPLACE VIEW NYC_Product_View AS
+SELECT DISTINCT
+    p.*
+FROM customers c
+JOIN orders o
+ON c.customerNumber = o.customerNumber
+JOIN orderdetails od
+ON o.orderNumber = od.orderNumber
+JOIN products p
+ON od.productCode = p.productCode
+WHERE c.city IN ('Las Vegas', 'San Francisco');
+select * from NYC_Product_View;
