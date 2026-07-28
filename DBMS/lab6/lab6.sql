@@ -78,3 +78,18 @@ GROUP BY
     c.customerName;
 Select * from Customer_Payment_View;
 
+
+-- 5. Create a view that contains information about product details for products ordered by customer residing in city 'NYC'.
+CREATE VIEW NYC_Product_View AS
+SELECT DISTINCT
+    p.*
+FROM customers c
+JOIN orders o
+ON c.customerNumber = o.customerNumber
+JOIN orderdetails od
+ON o.orderNumber = od.orderNumber
+JOIN products p
+ON od.productCode = p.productCode
+WHERE c.city = 'NYC';
+Select * from NYC_Product_View;
+
