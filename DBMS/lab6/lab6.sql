@@ -49,4 +49,32 @@ JOIN products p
 ON od.productCode = p.productCode;
 SELECT * FROM Customer_Product_View;
 
+-- 4. Create a view that contains information about customer number, customer name, total amount paid by each customer.
+CREATE VIEW Customer_Payment_View AS
+SELECT
+    c.customerNumber,
+    c.customerName,
+    SUM(p.amount) AS TotalAmountPaid
+FROM customers c
+JOIN payments p
+ON c.customerNumber = p.customerNumber
+GROUP BY
+    c.customerNumber,
+    c.customerName;
+Select * from Customer_Payment_View;
+
+
+-- 4. Create a view that contains information about customer number, customer name, total amount paid by each customer.
+CREATE VIEW Customer_Payment_View AS
+SELECT
+    c.customerNumber,
+    c.customerName,
+    SUM(p.amount) AS TotalAmountPaid
+FROM customers c
+JOIN payments p
+ON c.customerNumber = p.customerNumber
+GROUP BY
+    c.customerNumber,
+    c.customerName;
+Select * from Customer_Payment_View;
 
