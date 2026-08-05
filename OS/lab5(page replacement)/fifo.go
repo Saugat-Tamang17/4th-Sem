@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func fifo(pages []int, capacity int) int {
 	frames := make([]int, 0, capacity)
@@ -12,4 +15,8 @@ func fifo(pages []int, capacity int) int {
 	for i := 1; i <= capacity; i++ {
 		header += fmt.Sprintf(" Frame %d |", i)
 	}
+
+	header += "action taken"
+	fmt.Println(header)
+	fmt.Println(strings.Repeat("-", len(header)+25))
 }
