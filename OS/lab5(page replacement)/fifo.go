@@ -52,7 +52,8 @@ func fifo(pages []int, capacity int) int {
 						break
 					}
 				}
-
+				queue = append(queue, page)
+				action = fmt.Sprintf("Evicted %d-> Loaded %d", evicted, page)
 			}
 		}
 
