@@ -19,4 +19,19 @@ func fifo(pages []int, capacity int) int {
 	header += "action taken"
 	fmt.Println(header)
 	fmt.Println(strings.Repeat("-", len(header)+25))
+
+	//checking if the page is alreadyy in memory
+	
+	for _, page := range pages {
+		inFrames := false
+		for _,f:=range frames{
+			if f ==page{ //meaning that it is already inside the memory
+				inFrames=true
+				break
+			}
+		}
+			inFrames = true
+			break
+		}
+	}
 }
