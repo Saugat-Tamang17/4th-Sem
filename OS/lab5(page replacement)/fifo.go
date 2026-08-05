@@ -45,6 +45,14 @@ func fifo(pages []int, capacity int) int {
 				evicted := queue[0]
 				queue = queue[1:]
 
+				//replacing the evicted pages in the frame slices
+				for idx, f := range frames {
+					if f == evicted {
+						frames[idx] = page
+						break
+					}
+				}
+
 			}
 		}
 
