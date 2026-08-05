@@ -40,6 +40,11 @@ func fifo(pages []int, capacity int) int {
 				frames = append(frames, page)
 				queue = append(queue, page)
 				action = fmt.Sprintf("Page %d Loaded", page)
+			} else {
+				//evicting the oldest page ( front page in the queue)
+				evicted := queue[0]
+				queue = queue[1:]
+
 			}
 		}
 
