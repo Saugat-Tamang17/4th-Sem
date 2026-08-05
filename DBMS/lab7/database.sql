@@ -1,4 +1,4 @@
--- Active: 1780924718547@@127.0.0.1@3306
+-- Active: 1780924718547@@127.0.0.1@3306@lab7
 
 create database lab7;
 use lab7;
@@ -48,7 +48,7 @@ create Table FundingAgency(
   Email varchar (20) not null unique
 );
 
-CREATE TABLE LABORATORY (
+CREATE TABLE Laboratory (
     LabID         INT PRIMARY KEY,
     Name          VARCHAR(100) NOT NULL,
     Building      VARCHAR(100),
@@ -60,8 +60,10 @@ CREATE TABLE PUBLICATION (
     Title             VARCHAR(200) NOT NULL,
     Journal           VARCHAR(150),
     PublicationYear   year,
-    DOI               VARCHAR(50) UNIQUE
-)
+    DOI               VARCHAR(50) UNIQUE,
+    ProjectID INT,
+    Foreign Key (ProjectID) REFERENCES ResearchProject(ProjectID)
+);
 
 create table Participation(
   ProjectID int not null,
@@ -70,18 +72,62 @@ create table Participation(
   JoiningDate DATE not null,
   Role varchar(50) not null,
   MonthlyStipend decimal(10,2),
+  primary key(ProjectID,StudentID),
   Foreign Key (ProjectID) REFERENCES ResearchProject(ProjectID),
   Foreign Key (StudentID) REFERENCES Student(StudentID)
-)
+);
 
 create table Funding(
   AgencyID int not null ,
   ProjectID int not null , -- 1project can get funded from multiple agencies --
   Amount decimal(12,2) not null,
   FundingDate DATE not null,
+  primary key(AgencyID,ProjectID,FundingDate),
   FOREIGN KEY (ProjectID) REFERENCES ResearchProject(ProjectID),
     FOREIGN KEY (AgencyID) REFERENCES FundingAgency(AgencyID)
-)
+);
+
+create table Author (
+AuthorID int primary key,
+name varchar(50) not null,
+email varchar(50) not null unique,
+FacultyID int,
+StudentID int,
+Foreign Key (FacultyID) REFERENCES Faculty(FacultyID),
+Foreign Key (StudentID) REFERENCES Student(StudentID)
+);
+
+create table Publication_Author(
+  PublicationID int not null,
+  AuthorID int not null,
+  AuthorOrder int not null,
+  CorrespondingAuthor Boolean Default false,
+
+  PRIMARY KEY (PublicationID,AuthorID),
+  Foreign Key (PublicationID) REFERENCES Publication(PublicationID),
+  Foreign Key (AuthorID) REFERENCES Author(AuthorID),
+  unique(PublicationID,AuthorOrder),
+  check(AuthorOrder > 0)
+);
+
+CREATE TABLE Project_Laboratory (
+    ProjectID INT NOT NULL,
+    LabID INT NOT NULL,
+    ReservationStartDate DATE NOT NULL,
+    ReservationEndDate DATE NOT NULL,
+
+    PRIMARY KEY (ProjectID, LabID, ReservationStartDate),
+
+    FOREIGN KEY (ProjectID)
+        REFERENCES ResearchProject(ProjectID),
+
+    FOREIGN KEY (LabID)
+        REFERENCES Laboratory(LabID),
+
+    CHECK (ReservationEndDate >= ReservationStartDate)
+);
+
+
 
 
 
