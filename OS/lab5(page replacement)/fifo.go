@@ -55,6 +55,17 @@ func fifo(pages []int, capacity int) int {
 				queue = append(queue, page)
 				action = fmt.Sprintf("Evicted %d-> Loaded %d", evicted, page)
 			}
+			//printing the frame contents and the current action
+			row := fmt.Sprintf("%-16d|", page)
+			for i := 0; i < capacity; i++ {
+				if i < len(frames) {
+					row += fmt.Sprintf("%-7d |", frames[i])
+				} else {
+					row += fmt.Sprintf("%-7s |", "-") //empty
+				}
+			}
+			row += "" + action
+			fmt.Println(row)
 		}
 
 	}
