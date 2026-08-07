@@ -31,6 +31,12 @@ func lru(pages []int, capacity int) {
 		if inFrames {
 			action = "hit"
 		} else {
+			pageFaults++
+			if len(frames) < capacity {
+				frames = append(frames, page)
+				action = fmt.Sprintf("page %dLoaded", page)
+
+			}
 
 		}
 	}
