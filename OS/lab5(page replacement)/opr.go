@@ -16,7 +16,15 @@ func opr(pages[]int,capacity[]){
 				inFrames = true
 				break
 			}
-		}
+		}var action string
+
+		if inFrames {
+			action = "Hit"
+		} else {
+			pageFaults++
+			if len(frames) < capacity {
+				frames = append(frames, page)
+				action = fmt.Sprintf("Page %d Loaded", page)}
 }
 
 
