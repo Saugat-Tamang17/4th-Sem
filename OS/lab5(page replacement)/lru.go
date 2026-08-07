@@ -50,6 +50,7 @@ func lru(pages []int, capacity int) {
 				action = fmt.Sprintf("Evicted %d -> Loaded %d", evicted, page)
 			}
 		}
+		LastUsed[page] = timeStep
 		row := fmt.Sprintf("%-16d |", page)
 		for i := 0; i < capacity; i++ {
 			if i < len(frames) {
