@@ -61,6 +61,8 @@ func lru(pages []int, capacity int) {
 		row += " " + action
 		fmt.Println(row)
 	}
+	fmt.Println(strings.Repeat("-", len(header)+25))
+	fmt.Printf("Total Page Faults: %d\n", pageFaults)
 }
 
 func main() {
