@@ -35,7 +35,16 @@ func lru(pages []int, capacity int) {
 			if len(frames) < capacity {
 				frames = append(frames, page)
 				action = fmt.Sprintf("page %dLoaded", page)
-
+			} else {
+				lruIndex := 0
+				minTime := LastUsed[frame[0]] //starting with first frame's timestamppp
+				for i := 1; i < len(frames); i++ {
+					f := frames[i]
+					if LastUsed[f] < minTime {
+						minTime = LastUsed[f]
+						lruIndex = i
+					}
+				}
 			}
 
 		}
