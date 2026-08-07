@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func lru(pages []int, capacity int) {
 	frames := make([]int, 0, capacity)
@@ -12,6 +15,19 @@ func lru(pages []int, capacity int) {
 		header += fmt.Sprintf("Frame %d |", i)
 	}
 	header += "action taken"
+	fmt.Println(header)
+	fmt.Println(strings.Repeat("-", len(header)+25))
+
+	//processing the each page ( from reference string)//
+	for timeStep,page:=range pages{
+		inFrames:=false
+		for _,:=range frames{
+			if f ==page{
+				inFrames == true
+				break
+			}
+		}
+	}
 }
 
 func main() {
