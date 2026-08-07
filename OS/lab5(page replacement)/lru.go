@@ -49,8 +49,17 @@ func lru(pages []int, capacity int) {
 				frames[lruIndex] = page
 				action = fmt.Sprintf("Evicted %d -> Loaded %d", evicted, page)
 			}
-
 		}
+		row := fmt.Sprintf("%-16d |", page)
+		for i := 0; i < capacity; i++ {
+			if i < len(frames) {
+				row += fmt.Sprintf(" %-7d |", frames[i])
+			} else {
+				row += fmt.Sprintf(" %-7s |", "-") // Empty frame slot
+			}
+		}
+		row += " " + action
+		fmt.Println(row)
 	}
 }
 
