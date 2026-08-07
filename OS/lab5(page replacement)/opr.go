@@ -31,7 +31,13 @@ func opr(pages[]int,capacity[]){
 
 				for idx, f := range frames {
 					nextUse := -1
-}
+					for j := i + 1; j < len(pages); j++ {
+						if pages[j] == f {
+							nextUse = j
+							break
+						}
+					}
+				}
 
 
 //opr stands for optimal page replacement//
