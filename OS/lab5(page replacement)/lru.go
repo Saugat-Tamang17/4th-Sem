@@ -23,7 +23,7 @@ func lru(pages []int, capacity int) {
 		inFrames := false
 		for _, f := range frames {
 			if f == page {
-				inFrames == true
+				inFrames = true
 				break
 			}
 		}
