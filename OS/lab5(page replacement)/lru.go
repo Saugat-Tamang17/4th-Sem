@@ -19,13 +19,19 @@ func lru(pages []int, capacity int) {
 	fmt.Println(strings.Repeat("-", len(header)+25))
 
 	//processing the each page ( from reference string)//
-	for timeStep,page:=range pages{
-		inFrames:=false
-		for _,:=range frames{
-			if f ==page{
+	for timeStep, page := range pages {
+		inFrames := false
+		for _, f := range frames {
+			if f == page {
 				inFrames == true
 				break
 			}
+		}
+		var action string
+		if inFrames {
+			action = "hit"
+		} else {
+
 		}
 	}
 }
