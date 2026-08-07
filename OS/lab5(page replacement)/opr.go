@@ -37,6 +37,15 @@ func opr(pages[]int,capacity[]){
 							break
 						}
 					}
+					if nextUse == -1 {
+						replaceIdx = idx
+						break
+					}
+					if nextUse > farthestUse {
+						farthestUse = nextUse
+						replaceIdx = idx
+					}
+				}
 				}
 
 
