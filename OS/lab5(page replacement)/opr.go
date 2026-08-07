@@ -2,6 +2,10 @@ package main
 func opr(pages[]int,capacity[]){
 	frames := make([]int, 0, capacity)
 	pageFaults := 0
+	header := fmt.Sprintf("%-16s |", "Reference String")
+	for i := 1; i <= capacity; i++ {
+		header += fmt.Sprintf(" Frame %d |", i)
+	}
 }
 
 
