@@ -6,6 +6,9 @@ func opr(pages[]int,capacity[]){
 	for i := 1; i <= capacity; i++ {
 		header += fmt.Sprintf(" Frame %d |", i)
 	}
+	header += " Action Taken"
+	fmt.Println(header)
+	fmt.Println(strings.Repeat("-", len(header)+25))
 }
 
 
