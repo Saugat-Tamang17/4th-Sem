@@ -24,7 +24,13 @@ func opr(pages[]int,capacity[]){
 			pageFaults++
 			if len(frames) < capacity {
 				frames = append(frames, page)
-				action = fmt.Sprintf("Page %d Loaded", page)}
+				action = fmt.Sprintf("Page %d Loaded", page)}else {
+				// Find the frame page that will NOT be used for the longest time in the future
+				replaceIdx := -1
+				farthestUse := -1
+
+				for idx, f := range frames {
+					nextUse := -1
 }
 
 
