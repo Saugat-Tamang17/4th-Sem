@@ -1,7 +1,9 @@
 package main
 
 func lru(pages []int, capacity int) {
-
+	frames := make([]int, 0, capacity)
+	LastUsed := make(map[int]int)
+	pageFaults := 0
 }
 
 func main() {
