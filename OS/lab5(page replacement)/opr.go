@@ -9,6 +9,14 @@ func opr(pages[]int,capacity[]){
 	header += " Action Taken"
 	fmt.Println(header)
 	fmt.Println(strings.Repeat("-", len(header)+25))
+	for i, page := range pages {
+		inFrames := false
+		for _, f := range frames {
+			if f == page {
+				inFrames = true
+				break
+			}
+		}
 }
 
 
