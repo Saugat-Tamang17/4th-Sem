@@ -11,6 +11,10 @@ func FCFSdisk(queue []int, head int) {
 
 	header := fmt.Sprintf("%-12s | %-12s | %-20s | %-18s", "From Track", "To Track", "Movement Calculation", "Head Movement")
 	divider := strings.Repeat("-", len(header))
+
+	fmt.Printf("FCFS Disk Scheduling Simulation ( initial head :%d)\n", head)
+	fmt.Println(header)
+	fmt.Println(divider)
 }
 
 func main() {
