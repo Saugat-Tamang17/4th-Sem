@@ -23,6 +23,9 @@ func FCFSdisk(queue []int, head int) {
 		fmt.Printf("%-12s | %-12s | %-20s | %-18d\n", currentHead, track, calcStr, movement)
 		currentHead = track
 	}
+	fmt.Println(divider)
+	fmt.Printf("Total Head Movement: %d tracks\n", totalHeadMovement)
+	fmt.Printf("Average Seek Distance: %.2f tracks\n", float64(totalHeadMovement)/float64(len(queue)))
 }
 
 func main() {
