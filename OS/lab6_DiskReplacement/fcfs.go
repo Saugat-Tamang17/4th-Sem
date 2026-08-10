@@ -1,7 +1,8 @@
 package main
 
 func FCFSdisk(queue []int, head int) {
-
+	totalHeadMovement := 0
+	currentHead := head
 }
 
 func main() {
